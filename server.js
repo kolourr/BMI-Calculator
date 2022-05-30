@@ -63,7 +63,7 @@ const server = http.createServer((req, res) => {
           'Content-Type': 'application/json'
         });
         const objToJson = {
-          bmi: bmi,
+          bmi: bmi.toFixed(2),
           category: category,
         }
         res.end(JSON.stringify(objToJson));

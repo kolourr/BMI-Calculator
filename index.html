@@ -3,16 +3,27 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>BMI Calculator - API</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <h1>Special BMI Calculator</h1>
+  <input type="radio" id="metric" name="bmi" value="metric">
+  <label for="metric">Metric</label>
+  <input type="radio" id="standard" name="bmi" value="standard">
+  <label for="standard">Standard</label><br>
+
+
+
   <label for="height">Height</label>
-  <input id="height" type="text" name="" placeholder="Height">
+  <input id="height" type="text" name="" placeholder="Height" required>
   <label for="Weight">Weight</label>
-  <input id="weight" type="text" name="" placeholder="Weight">
+  <input id="weight" type="text" name="" placeholder="Weight" required>
+
+
   <button id="calculate-BMI" type="button" name="button">Calculate My BMI</button>
   <h2 id="BMI-VALUE"></h2>
   <h2 id="BMI-CATEGORY"></h2>
