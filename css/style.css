@@ -30,6 +30,10 @@ h1{
   color: red;
 }
 
+.dissappear {
+  display: none; 
+}
+
 
 /******************************************
 /* LAYOUT

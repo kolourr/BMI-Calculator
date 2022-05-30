@@ -16,25 +16,7 @@ const server = http.createServer((req, res) => {
       res.write(data);
       res.end();
     });
-  } else if (page == '/otherpage') {
-    fs.readFile('otherpage.html', function (err, data) {
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-      res.write(data);
-      res.end();
-    });
-  } else if (page == '/otherotherpage') {
-    fs.readFile('otherotherpage.html', function (err, data) {
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-      res.write(data);
-      res.end();
-    });
-  }
-
-  //this is the basics of building your own API 
+  }   //this is the basics of building your own API 
   else if (page == '/api') {
     if ('weight' in params && 'height' in params) {
       if (params['weight'] != 0 && params['height'] != 0) {

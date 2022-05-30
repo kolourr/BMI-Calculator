@@ -7,27 +7,36 @@
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
+  	<link rel="stylesheet" href="css/reset.css">
 </head>
 
 <body>
   <h1>Special BMI Calculator</h1>
-  <input type="radio" id="metric" name="bmi" value="metric">
-  <label for="metric">Metric</label>
-  <input type="radio" id="standard" name="bmi" value="standard">
-  <label for="standard">Standard</label><br>
+  
+  <label for="metric"><input type="radio" id="metric-button" name="bmi" value="metric" class="radio-buttons" checked/> Metric</label>
+  <label for="standard"><input type="radio" id="standard-button" name="bmi" value="standard" class="radio-buttons">Standard</label><br>
 
 
+  <div class="metric">
+  <label for="height">Height - Cms</label>
+  <input id="height-cms" type="text" name="" placeholder="Height in Cms" required>
+  <label for="Weight">Weight in Kgs</label>
+  <input id="weight-kgs" type="text" name="" placeholder="Weight" required>
+  </div>
 
-  <label for="height">Height</label>
-  <input id="height" type="text" name="" placeholder="Height" required>
-  <label for="Weight">Weight</label>
-  <input id="weight" type="text" name="" placeholder="Weight" required>
-
+  <div class="standard">
+  <label for="height">Height - Feet</label>
+  <input id="height-feet" type="text" name="" placeholder="Height in Feet" required>
+  <label for="height">Height - Inches</label>
+  <input id="height-inches" type="text" name="" placeholder="Height in Inches" required>
+  <label for="Weight">Weight in lbs</label>
+  <input id="weight-lbs" type="text" name="" placeholder="Weight" required>
+  </div>
 
   <button id="calculate-BMI" type="button" name="button">Calculate My BMI</button>
   <h2 id="BMI-VALUE"></h2>
   <h2 id="BMI-CATEGORY"></h2>
-  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
