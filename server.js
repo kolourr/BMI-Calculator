@@ -4,6 +4,7 @@ const url = require('url');
 const querystring = require('querystring');
 const figlet = require('figlet')
 
+
 const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
@@ -83,11 +84,11 @@ const server = http.createServer((req, res) => {
 
 function bmiCategory(bmi) {
   if (bmi < 16) {
-    return category = 'Underweight - Severe thinness'
+    return category = 'Underweight - Severe Thinness'
   } else if (bmi < 17) {
-    return category = 'Underweight - Moderate thinness'
+    return category = 'Underweight - Moderate Thinness'
   } else if (bmi < 18.5) {
-    return category = 'Underweight - Mild thinness'
+    return category = 'Underweight - Mild Thinness'
   } else if (bmi < 25) {
     return category = 'Normal'
   } else if (bmi < 29.9) {

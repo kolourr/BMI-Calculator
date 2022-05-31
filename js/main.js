@@ -42,13 +42,16 @@ async function makeReq() {
     data = await res.json()
   }
 
-  if (data.bmi != 'Please enter valid information'){
-    document.querySelector('#BMI-VALUE').textContent = `BMI = ${data.bmi}` 
-    document.querySelector("#BMI-CATEGORY").textContent = `Category = ${data.category}` 
-  }
-  else{
+  if (data.bmi != 'Please enter valid information') {
+    document.querySelector('#BMI-VALUE').textContent = `BMI : ${data.bmi}`
+    document.querySelector("#BMI-CATEGORY").textContent = `Category : ${data.category}`
+
+  } else {
     document.querySelector('#BMI-VALUE').textContent = data.bmi
+    document.querySelector("#BMI-CATEGORY").textContent = ""
   }
-  
+
 
 }
+
+ 
