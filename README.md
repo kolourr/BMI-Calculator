@@ -15,7 +15,7 @@ This project was made using Vanilla Javascript and is built upon the simple NoeJ
 
 ## Lessons Learned:
 
-It is obvious why Express is required to work with Javascript in the backend. 
+Very obvious why Express is NEEDED! 
 
 
 
