@@ -16,37 +16,31 @@ const server = http.createServer((req, res) => {
       res.write(data);
       res.end();
     });
-  }   //this is the basics of building your own API 
+  } //this is the basics of building your own API 
   else if (page == '/api') {
-    if ('weight' in params && 'height' in params) {
-      if (params['weight'] != 0 && params['height'] != 0) {
-        let bmi = (params['weight'] / Math.pow(params['height'], 2)) * 703
-        console.log(bmi)
-        let category = ''
-        if (bmi < 16) {
-          category = 'Underweight - Severe thinness'
-        } else if (bmi < 17) {
-          category = 'Underweight - Moderate thinness'
-        } else if (bmi < 18.5) {
-          category = 'Underweight - Mild thinness'
-        } else if (bmi < 25) {
-          category = 'Normal'
-        } else if (bmi < 29.9) {
-          category = 'Overweight - Pre Obese'
-        } else if (bmi < 34.9) {
-          category = 'Overweight - Class I'
-        } else if (bmi < 39.9) {
-          category = 'Overweight - Class II'
-        } else if (bmi > 40) {
-          category = 'Overweight - Class III'
-        }
-
+    if ('weightMetric' in params && 'heightMetric' in params && 'heightInches' in params && 'weightLbs' in params) {
+      if (params['weightMetric'] != 0 && params['heightMetric'] != 0) {
+        let bmi = Number(params['weightMetric'] / Math.pow(params['heightMetric'] / 100, 2))
+        let category = bmiCategory(bmi)
         res.writeHead(200, {
           'Content-Type': 'application/json'
         });
         const objToJson = {
           bmi: bmi.toFixed(2),
-          category: category,
+          category: category
+        }
+        res.end(JSON.stringify(objToJson));
+      } 
+      else if (params['weightLbs'] != 0 && params['heightInches'] != 0) {
+        let bmi = 703 *  Number(params['weightLbs']) / Number(Math.pow(params['heightInches'], 2))  
+        console.log(bmi)
+        let category = bmiCategory(bmi)
+        res.writeHead(200, {
+          'Content-Type': 'application/json'
+        });
+        const objToJson = {
+          bmi: bmi.toFixed(2),
+          category: category
         }
         res.end(JSON.stringify(objToJson));
       } else {
@@ -54,7 +48,7 @@ const server = http.createServer((req, res) => {
           'Content-Type': 'application/json'
         });
         const objToJson = {
-          bmi: "Please enter the valid information",
+          bmi: "Please enter valid information"
         }
         res.end(JSON.stringify(objToJson));
       }
@@ -86,5 +80,27 @@ const server = http.createServer((req, res) => {
     });
   }
 });
+
+function bmiCategory(bmi) {
+  if (bmi < 16) {
+    return category = 'Underweight - Severe thinness'
+  } else if (bmi < 17) {
+    return category = 'Underweight - Moderate thinness'
+  } else if (bmi < 18.5) {
+    return category = 'Underweight - Mild thinness'
+  } else if (bmi < 25) {
+    return category = 'Normal'
+  } else if (bmi < 29.9) {
+    return category = 'Overweight - Pre Obese'
+  } else if (bmi < 34.9) {
+    return category = 'Overweight - Class I'
+  } else if (bmi < 39.9) {
+    return category = 'Overweight - Class II'
+  } else if (bmi > 40) {
+    return category = 'Overweight - Class III'
+  }
+
+}
+
 
 server.listen(8000);

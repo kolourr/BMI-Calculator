@@ -4,38 +4,50 @@
 <head>
   <meta charset="utf-8">
   <title>BMI Calculator - API</title>
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
-  	<link rel="stylesheet" href="css/reset.css">
+  <!-- external CSS link -->
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/reset.css">
 </head>
 
 <body>
   <h1>Special BMI Calculator</h1>
-  
-  <label for="metric"><input type="radio" id="metric-button" name="bmi" value="metric" class="radio-buttons" checked/> Metric</label>
-  <label for="standard"><input type="radio" id="standard-button" name="bmi" value="standard" class="radio-buttons">Standard</label><br>
+
+  <div class="calculatorBox">
+    <div class="radioButtons">
+      <label for="metric"><input type="radio" id="metric-button" name="bmi" value="metric" class="radio-buttons"
+          checked>Metric</label>
+      <label for="standard"><input type="radio" id="standard-button" name="bmi" value="standard"
+          class="radio-buttons">Standard</label>
+    </div>
 
 
-  <div class="metric">
-  <label for="height">Height - Cms</label>
-  <input id="height-cms" type="text" name="" placeholder="Height in Cms" required>
-  <label for="Weight">Weight in Kgs</label>
-  <input id="weight-kgs" type="text" name="" placeholder="Weight" required>
+    <div class="metric">
+      <label for="height">Height</label>
+      <input id="height-cms" type="number" name="" placeholder="Height in cms" onfocus="this.value=''" required>
+      <label for="Weight">Weight</label>
+      <input id="weight-kgs" type="number" name="" placeholder="Weight in kgs" onfocus="this.value=''" required>
+    </div>
+
+    <div class="standard">
+      <label for="height">Height - Feet</label>
+      <input id="height-feet" type="number" name="" placeholder="Height in feet" onfocus="this.value=''" required>
+      <label for="height">Height - Inches</label>
+      <input id="height-inches" type="number" name="" placeholder="Height in inches" onfocus="this.value=''" required>
+      <label for="Weight">Weight</label>
+      <input id="weight-lbs" type="number" name="" placeholder="Weight in lbs" onfocus="this.value=''" required>
+    </div>
+
+    <div class="calculateButton">
+      <button id="calculate-BMI" type="button" name="button">Calculate My BMI</button>
+    </div>
+    <div class="results">
+      <h2 id="BMI-VALUE"></h2>
+      <h2 id="BMI-CATEGORY"></h2>
+    </div>
   </div>
 
-  <div class="standard">
-  <label for="height">Height - Feet</label>
-  <input id="height-feet" type="text" name="" placeholder="Height in Feet" required>
-  <label for="height">Height - Inches</label>
-  <input id="height-inches" type="text" name="" placeholder="Height in Inches" required>
-  <label for="Weight">Weight in lbs</label>
-  <input id="weight-lbs" type="text" name="" placeholder="Weight" required>
-  </div>
-
-  <button id="calculate-BMI" type="button" name="button">Calculate My BMI</button>
-  <h2 id="BMI-VALUE"></h2>
-  <h2 id="BMI-CATEGORY"></h2>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 
